@@ -1,0 +1,73 @@
+\documentclass{paper}
+
+\include{preamble}
+ 
+\begin{document}
+ 
+\title{Symplectic Geometry}
+\author{Regoon Wang, ChemE@UNSW \\ wang.regoon@gmail.com} 
+
+
+\maketitle
+\begin{abstract}
+This is a note on Ana Cannas's \textit{Lectures on Symplectic Geometry}. However, it's not just a copy. It contains my
+understanding, questions and solutions to homework. 
+\end{abstract} 
+
+\tableofcontents
+\section{Notations}
+In order to keep the text short, common used notations are introduced here.
+\begin{enumerate}
+\item[$\bullet$] V be an \textit{m}-dimensional vector space over $\mathbb{R}$. 
+\item[$\bullet$] $\Omega:V\times V\rightarrow \mathbb{R}$ be a bilinear map.
+\end{enumerate}
+\section{Symplectic Forms}
+\begin{definition}
+The map $\Omega$  is \tb{skew-symmetric} if $\Omega(u,v)=-\Omega(v,u), \forall u,v\in V$.
+\end{definition}
+\begin{thm}[\tb{Standard Form for Skew-symmetric Bilinear Map}]
+$\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\forall i,j \text{ and } v\in V$
+\begin{equation*}
+\Omega(u_i,v)=\Omega(e_i,e_j)=\Omega(f_i,f_j)=0,\quad\Omega(e_i,f_j)=\delta_{ij}
+\end{equation*}
+\end{thm}
+\begin{remark*}
+\begin{enumerate}
+\item[1.] The basis is not unique, though it is traditionally also called a "canonical" basis.
+\item[2.] In matrix notation with respect to such basis, we have 
+\begin{equation*}
+\Omega(u,v)=
+\begin{bmatrix}
+- & u & -
+\end{bmatrix}
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & I_n \\
+0 &-I_n& 0
+\end{bmatrix}
+\begin{bmatrix}
+| \\
+v \\
+|
+\end{bmatrix}
+\end{equation*}
+and all normed linear independt enginvectors are basis. 
+\end{enumerate}
+\end{remark*}
+\begin{proof}
+This induction proof is a skew-symmetric version of the Gram-Schmidt process. Let $U:=\{u\in V\mid 
+\Omega(u,v)=0,\forall v\in V\}$. Choose a basis $u_1,\cdots,u_k$, and choose a complemetary space W,
+$V=U\oplus W$
+\end{proof}
+\subsection{Skew-Symmetric Bilinear Maps}
+\subsection{Symplectic Vector Space}
+\subsection{Symplectic Manifolds}
+\subsection{Symplectomorphisms}
+\subsection{Homework}
+\section{Symplectic Form on the Cotangent Bundle}
+\subsection{Cotangent Bundle}
+\subsection{Tautological and Canonical Forms in Coordinates}
+\subsection{Coordinate-Free Definitions}
+\subsection{Naturality of the Tautological and Canonical Forms}
+\subsection{Homework} 
+\end{document}
