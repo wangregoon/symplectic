@@ -12,21 +12,21 @@
 \newcommand{\map}[3]{{#1}:{#2}\rightarrow{#3}}
 
 \newtheorem{problem}{Problem}
-\newtheorem{thm}{Thm}
-\newtheorem{prop}{Prop}
-\newtheorem{lem}{Lem}
-\newtheorem{cor}{Coro}
+\newtheorem{thm}{Thm.}[section]
+\newtheorem{prop}{Prop.}[section]
+\newtheorem{lem}{Lem.}[section]
+\newtheorem{cor}{Coro.}[section]
 %\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{exer}{Exer}
+\newtheorem{exer}{Exer}[section]
 
 \theoremstyle{definition}
-\newtheorem{definition}{Def}
+\newtheorem{definition}{Def.}[section]
 %\newtheorem{example}{Example}[section] 
 
-\newtheorem{note*}{Note}
 \theoremstyle{remark}
-\newtheorem{remark*}{Remark}
-
+\newtheorem*{note}{Note}
+\newtheorem*{remark}{\tb{Remark}}
+\newtheorem*{claim}{\tb{Claim}}
 \newenvironment{solution}
                {\let\oldqedsymbol=\qedsymbol
                 \renewcommand{\qedsymbol}{$\blacktriangleleft$}

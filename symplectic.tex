@@ -1,17 +1,19 @@
-\documentclass{paper}
+\documentclass[4paper]{article}
 
 \include{preamble}
  
 \begin{document}
  
 \title{Symplectic Geometry}
-\author{Regoon Wang, ChemE@UNSW \\ wang.regoon@gmail.com} 
+\author{Regoon Wang  
+\footnote{ChemE@UNSW, wang.regoon@gmail.com}} 
 
 
 \maketitle
 \begin{abstract}
-This is a note on Ana Cannas's \textit{Lectures on Symplectic Geometry}. However, it's not just a copy. It contains my
-understanding, questions and solutions to homework. 
+This is a note while I reading Ana Cannas's \textit{Lectures on Symplectic Geometry}. However, it's not just a copy. 
+It contains my understanding, questions and solutions to homework. I believe it's a good way for me to self-study 
+mathematics. Make it slow and carefully, learn it by doing it.
 \end{abstract} 
 
 \tableofcontents
@@ -31,7 +33,8 @@ $\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\for
 \Omega(u_i,v)=\Omega(e_i,e_j)=\Omega(f_i,f_j)=0,\quad\Omega(e_i,f_j)=\delta_{ij}
 \end{equation*}
 \end{thm}
-\begin{remark*}
+
+\tb{Remark.} 
 \begin{enumerate}
 \item[1.] The basis is not unique, though it is traditionally also called a "canonical" basis.
 \item[2.] In matrix notation with respect to such basis, we have 
@@ -53,13 +56,47 @@ v \\
 \end{equation*}
 and all normed linear independt enginvectors are basis. 
 \end{enumerate}
-\end{remark*}
+
 \begin{proof}
-This induction proof is a skew-symmetric version of the Gram-Schmidt process. Let $U:=\{u\in V\mid 
+This induction proof is a skew-symmetric version of the Gram-Schmidt process. \\ Let $U:=\{u\in V\mid 
 \Omega(u,v)=0,\forall v\in V\}$. Choose a basis $u_1,\cdots,u_k$, and choose a complemetary space W,
-$V=U\oplus W$
+$$V=U\oplus W$$. Take any nonzero $e_1\in W$. Then there is $f_1\in W$ s.t. $\Omega(e_1,f_1)=1$. Let
+\begin{align*}
+W_1 &= span\{e_1,f_1\} \\
+W_1^{\Omega}&=\{w\in W\mid \Omega(w,v)=0,\forall v\in W_1\}
+\end{align*}
+\begin{claim}
+$W_1\cap W_1^{\Omega}={0}$.
+\end{claim}
+Suppose that $v=ae_1+bf_1\in W_1\cap W_1^{\Omega}$.
+\begin{equation*}
+ \left.\begin{aligned}
+        0&=\Omega(v,e_1)=-b\\
+        0&=\Omega(v,f_1)=a
+       \end{aligned}
+ \right\}
+ \Rightarrow v=0
+\end{equation*}
+\begin{claim}
+$W=W_1\oplus W_1^\Omega$.
+\end{claim}
+Suppose that $v\in W$ has $\Omega(v,e_1)=c, \Omega(v,f_1)=d$. Then
+\[
+ v = \underbrace{(-cf_1+de_1)}_{\in W_1}
+   + \underbrace{(v+cf_1-de_1)}_{\in W_1^\Omega}
+\]
+Go on with $W_1^\Omega$: choose $e_2,f_2\in W_1^\Omega$ s.t. $\Omega(e_2,f_2)=1$, let $W_2=span{e_2,f_2}$, etc.
+This process eventually stops because $\text{dim}V<\infty$. We hence obtain $$V=U\oplus W_1\oplus \cdots \oplus W_n$$.
+\tb{Remark.}
+\begin{enumerate}
+\item $k:=\text{dim}U$ is an invariant of $(V,\Omega)$.\\
+\item n is an invariant of $(V,\Omega)$; 2n is called the \tb{rank} of $\Omega$.
+\end{enumerate}
 \end{proof}
 \subsection{Skew-Symmetric Bilinear Maps}
+\begin{definition}
+The map $\tilde{\Omega}:V\rightarrow V^*$ is the linear map defined by $\tilde{\Omega}(v)(u)=\Omega(v,u)$.
+\end{definition}
 \subsection{Symplectic Vector Space}
 \subsection{Symplectic Manifolds}
 \subsection{Symplectomorphisms}
@@ -70,4 +107,36 @@ $V=U\oplus W$
 \subsection{Coordinate-Free Definitions}
 \subsection{Naturality of the Tautological and Canonical Forms}
 \subsection{Homework} 
+\section{Lagrangian Submanifolds}
+\subsection{Submanifolds}
+\subsection{Lagrangian Submanifolds of $ T^*X $}
+\subsection{Conormal Bundles}
+\subsection{Application to Symplectomorphisms}
+\subsection{Homework}
+\section{Generating Functions}
+\subsection{Constructing Symlectomorphisms}
+\subsection{Method of Generating Functions}
+\subsection{Application to Geodesic Flow}
+\subsection{Homework}
+\section{Recurrence}
+\subsection{Periodic Points}
+\subsection{Billiards}
+\subsection{Poincar\'{e} Recurrence}
+\subsection{Homework}
+\section{Preparation for the Local Theory}
+\subsection{Isotopies and Vector Fields}
+\subsection{Tubular neighborhood Theorem}
+\subsection{Homotopy Formula}
+\subsection{Homework}
+\section{Moser Theorems}
+\subsection{Notions of Equivalence for Symplectic Structure}
+\subsection{Moser Trick}
+\subsection{Moser Local Theorem}
+\subsection{Homework}
+\section{Darboux-Moser-Weinstein Theory}
+\subsection{Classical Darboux Theorem}
+\subsection{Lagrangian Subspaces}
+\subsection{Weinstein Lagrangian Neighborhood Theorem}
+\subsection{Homework}
+
 \end{document}
