@@ -29,7 +29,7 @@ In order to keep the text short, common used notations are introduced here.
 The map $\Omega$  is \tb{skew-symmetric} if $\Omega(u,v)=-\Omega(v,u), \forall u,v\in V$.
 \end{definition}
 \begin{thm}[\tb{Standard Form for Skew-symmetric Bilinear Map}]\label{thm:2.1}
-$\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\forall i,j \text{ and } 
+$\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\forall i,j \mathrm{ and } 
 v\in V$
 \begin{equation*}
 \Omega(u_i,v)=\Omega(e_i,e_j)=\Omega(f_i,f_j)=0,\quad\Omega(e_i,f_j)=\delta_{ij}
@@ -88,11 +88,11 @@ Suppose that $v\in W$ has $\Omega(v,e_1)=c, \Omega(v,f_1)=d$. Then
    + \underbrace{(v+cf_1-de_1)}_{\in W_1^\Omega}
 \]
 Go on with $W_1^\Omega$: choose $e_2,f_2\in W_1^\Omega$ s.t. $\Omega(e_2,f_2)=1$, let $W_2=span{e_2,
-f_2}$,etc. This process eventually stops because $\text{dim}V<\infty$. We hence obtain $$V=U\oplus
+f_2}$,etc. This process eventually stops because $\mathrm{dim}V<\infty$. We hence obtain $$V=U\oplus
 W_1\oplus \cdots \oplus W_n$$.
 \tb{Remark.}
 \begin{enumerate}
-\item $k:=\text{dim}U$ is an invariant of $(V,\Omega)$.\\
+\item $k:=\mathrm{dim}U$ is an invariant of $(V,\Omega)$.\\
 \item n is an invariant of $(V,\Omega)$; 2n is called the \tb{rank} of $\Omega$.
 \end{enumerate}
 \end{proof}
@@ -110,7 +110,7 @@ and $(V,\Omega)$ is called a \tb{symplectic vector space}.
 These are immediate properties of symplectic map:
 \begin{enumerate}
 \item Duality: the map $\Omega : V \overset{\backsimeq}{\rightarrow} V^*$ is a bijection.
-\item $\text{dim}U=0,\text{dim}V=2n$.
+\item $\mathrm{dim}U=0,\mathrm{dim}V=2n$.
 \item $(V,\Omega)$ has a basis $e_1,\cdots,e_n,f_1,\cdots,f_n$ s.t.
 \begin{equation*}
 \Omega(u,v)=
@@ -136,6 +136,7 @@ Not all subspace W of a $(V,\Omega)$ look the same:
 \item W is \tb{isotropic} if $\Omega\mid_W\equiv0$, for instance $W=span{e_1,e_1}$.
 \end{itemize}
 \end{remark}
+\subsection{Symplectic Vector Space}
 \begin{definition}
 A \tb{symplectomorphism} $\varphi$ between $(V,\Omega)$ and $(V',\Omega ')$ is a linear isomorphism
 $\varphi:V\overset{\backsimeq}{\rightarrow} V'$ s.t. $\varphi^*\Omega '=\Omega, (\varphi^*
@@ -145,46 +146,158 @@ said to be \tb{symplectomophic}.
 \begin{remark}
 Thm \ref{thm:2.1} shows that any symplectic space is symplectomorphic to $(\R{2n},\Omega_0)$.
 \end{remark}
-\subsection{Symplectic Vector Space}
 \subsection{Symplectic Manifolds}
+Let $\omega$ be a de Rham 2-form on a manifold M, that is, for each $p\in M$, the map $\omega_p:T_pM
+\times T_pM\rightarrow \mathbb{R}$ is skew-symmetric bilinear on the tangent space to M at p, and
+$\omega_p$ varies smoothly in p. We say that $\omega$ is closed if it satisfies the differential
+equation $d\omega=0$, where d is the de Rham differential.
+\begin{definition}
+The 2-form $\omega$ is symplectic if $\omega$ is closed and $\omega_p$ is symplectic for all $p\in M$.
+\end{definition}
+If $\omega$ is symplectic, then dim$T_mM$=dim$M$ must be even.
+\begin{definition}
+A symplectic manifold is a pair $(M,\omega)$ where M is a manifold and $\omega$ is a symplectic form.
+\end{definition}
+\begin{example}
+Let $M=\R{2n}$ with linear coordinates $x_1,\cdots,x_n,y_1,\cdots,y_n$. Then the form $$\omega_0 =
+\sum_{i=1}^{n}dx_i\wedge dy_i$$ is symplectic, and the set $$\left\{\left(\frac{\partial}{\partial x_1}\right),
+\cdots,\left(\frac{\partial}{\partial x_n}\right),\left(\frac{\partial}{\partial y_1}\right),\cdots,
+\left(\frac{\partial}{\partial y_n}\right)\right\}$$ is a symplectic basis.
+\end{example}
+\begin{example}
+Let $M=\mathbb{C}^n$ with linear coordinates $z_1,\cdots,z_n$. The form $$\omega_0=\frac{i}{2}\sum_{i=1}^{n}
+dz_k\wedge d\overline{z}_k$$ is symplectic. In fact $\mathbb{C}^n\equiv\R{2n},z_k=x_k+\tb{i}y_k$.
+\end{example}
 \subsection{Symplectomorphisms}
+\begin{definition}
+Let $(M_1,\omega_1)$ and $(M_2,\omega_2)$ be 2n-dim symplectic manifolds, and let $\map{g}{M_1}{M2}$
+be a diffeomorphism. Then g is a \tb{symplectomorphism} if $g^*\omega_2=\omega_1$.
+\end{definition}
+\begin{thm}[Darboux]
+Let $(M,\omega)$ be 2n-dim sysmplectic manifold and point $p\in M$. Then there is a coordiante chart
+$(\mathcal{U},x_1,\cdots,x_n,y_1,\cdots,y_n)$ centered at p s.t. the symplectic form is $$\omega=
+\sum_{i=1}^{n}dx_i\wedge dy_i $$
+\end{thm}
+More precisely, any symplectic manifold $(M^{2n},\omega)$ is locally symplectomorphic to $(\R{2},\omega_0)$.
 \subsection{Homework}
+Given a linear subspace Y of a symplectic vector space $(V,\Omega)$, its \tb{symplectic orthogonal} is 
+defined as $$Y^\Omega:=\{v\in V\mid\Omega(v,u)=0, \forall u\in Y\}.$$
+\begin{exer}
+$\mathrm{dim}Y+\mathrm{dim}Y^\Omega=\mathrm{dim}V$.
+\end{exer}
+\begin{exer}
+$(Y^\Omega)^\Omega=Y$.
+\end{exer}
+\begin{exer}
+if Y,W are subspace, then $Y\subseteq W\Leftrightarrow W^\Omega \subseteq Y^\Omega$.
+\end{exer}
+\begin{exer}
+Y is symplectic $\Leftrightarrow Y\cap Y^\Omega=\{0\} \Leftrightarrow V=Y\oplus Y^\Omega$.
+\end{exer}
+\begin{exer}
+Y is isotropic $\Rightarrow \mathrm{dim}Y\leq \frac{1}{2}\mathrm{dim}V$.
+\end{exer}
+\begin{exer}
+An isotropic Y is called \tb{Lagrangian} when $\mathrm{dim}Y= \frac{1}{2}\mathrm{dim}V$. Check that: Y is
+lagrangian $\Leftrightarrow$ Y is isotropic and coisotropic $\Leftrightarrow$ $Y=Y^\Omega$. 
+\end{exer}
+\begin{exer}
+We call Y coisotropic when $Y^\Omega\Subset Y$. Check that every codimension 1 subspace Y is coisotropic.
+\end{exer}
 \section{Symplectic Form on the Cotangent Bundle}
+
 \subsection{Cotangent Bundle}
+
 \subsection{Tautological and Canonical Forms in Coordinates}
+
 \subsection{Coordinate-Free Definitions}
+
 \subsection{Naturality of the Tautological and Canonical Forms}
+
 \subsection{Homework} 
+
 \section{Lagrangian Submanifolds}
+
 \subsection{Submanifolds}
+
 \subsection{Lagrangian Submanifolds of $ T^*X $}
+
 \subsection{Conormal Bundles}
+
 \subsection{Application to Symplectomorphisms}
+
 \subsection{Homework}
+
 \section{Generating Functions}
+
 \subsection{Constructing Symlectomorphisms}
+
 \subsection{Method of Generating Functions}
+
 \subsection{Application to Geodesic Flow}
+
 \subsection{Homework}
+
 \section{Recurrence}
+
 \subsection{Periodic Points}
+
 \subsection{Billiards}
+
 \subsection{Poincar\'{e} Recurrence}
+
 \subsection{Homework}
+
 \section{Preparation for the Local Theory}
+
 \subsection{Isotopies and Vector Fields}
+
 \subsection{Tubular neighborhood Theorem}
+
 \subsection{Homotopy Formula}
+
 \subsection{Homework}
+
 \section{Moser Theorems}
+
 \subsection{Notions of Equivalence for Symplectic Structure}
+
 \subsection{Moser Trick}
+
 \subsection{Moser Local Theorem}
+
 \subsection{Homework}
+
 \section{Darboux-Moser-Weinstein Theory}
+
 \subsection{Classical Darboux Theorem}
+
 \subsection{Lagrangian Subspaces}
+
 \subsection{Weinstein Lagrangian Neighborhood Theorem}
+
+\subsection{Homework}
+
+\section{Weinstein Tubular Neighborhood Theorem}
+
+\subsection{Observation from linear algebra}
+
+\subsection{Tubular Neighborhoods}
+
+\subsection{Tangent space to the group of symplectomorphisms}
+
+\subsection{Fixed points of symplectomorphisms}
+
+\subsection{Homework}
+
+\section{Contact Forms}
+
+\subsection{Contact Structure}
+
+\subsection{Examples}
+
+\subsection{First Properties}
+
 \subsection{Homework}
 
 \end{document}
