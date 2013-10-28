@@ -11,24 +11,26 @@
 
 \maketitle
 \begin{abstract}
-This is a note while I reading Ana Cannas's \textit{Lectures on Symplectic Geometry}. However, it's not just a copy. 
-It contains my understanding, questions and solutions to homework. I believe it's a good way for me to self-study 
-mathematics. Make it slow and carefully, learn it by doing it.
+This is a note while I reading Ana Cannas's \textit{Lectures on Symplectic Geometry}. However, it's not
+just a copy. It contains my understanding, questions and solutions to homework. I believe it's a good 
+way for me to self-study mathematics. Make it slow and carefully, learn it by doing it.
 \end{abstract} 
 
 \tableofcontents
 \section{Notations}
 In order to keep the text short, common used notations are introduced here.
-\begin{enumerate}
-\item[$\bullet$] V be an \textit{m}-dimensional vector space over $\mathbb{R}$. 
-\item[$\bullet$] $\Omega:V\times V\rightarrow \mathbb{R}$ be a bilinear map.
-\end{enumerate}
+\begin{itemize}
+\item V be an \textit{m}-dimensional vector space over $\mathbb{R}$. 
+\item $\Omega:V\times V\rightarrow \mathbb{R}$ be a bilinear map.
+\item $(V,\Omega)$ is a \tb{symplectic vector space}.
+\end{itemize}
 \section{Symplectic Forms}
 \begin{definition}
 The map $\Omega$  is \tb{skew-symmetric} if $\Omega(u,v)=-\Omega(v,u), \forall u,v\in V$.
 \end{definition}
-\begin{thm}[\tb{Standard Form for Skew-symmetric Bilinear Map}]
-$\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\forall i,j \text{ and } v\in V$
+\begin{thm}[\tb{Standard Form for Skew-symmetric Bilinear Map}]\label{thm:2.1}
+$\exists$ a basis $u_1,\cdots,u_k,e_1,\cdots,e_n,f_1,\cdots,f_n$ of V s.t. $\forall i,j \text{ and } 
+v\in V$
 \begin{equation*}
 \Omega(u_i,v)=\Omega(e_i,e_j)=\Omega(f_i,f_j)=0,\quad\Omega(e_i,f_j)=\delta_{ij}
 \end{equation*}
@@ -85,8 +87,9 @@ Suppose that $v\in W$ has $\Omega(v,e_1)=c, \Omega(v,f_1)=d$. Then
  v = \underbrace{(-cf_1+de_1)}_{\in W_1}
    + \underbrace{(v+cf_1-de_1)}_{\in W_1^\Omega}
 \]
-Go on with $W_1^\Omega$: choose $e_2,f_2\in W_1^\Omega$ s.t. $\Omega(e_2,f_2)=1$, let $W_2=span{e_2,f_2}$, etc.
-This process eventually stops because $\text{dim}V<\infty$. We hence obtain $$V=U\oplus W_1\oplus \cdots \oplus W_n$$.
+Go on with $W_1^\Omega$: choose $e_2,f_2\in W_1^\Omega$ s.t. $\Omega(e_2,f_2)=1$, let $W_2=span{e_2,
+f_2}$,etc. This process eventually stops because $\text{dim}V<\infty$. We hence obtain $$V=U\oplus
+W_1\oplus \cdots \oplus W_n$$.
 \tb{Remark.}
 \begin{enumerate}
 \item $k:=\text{dim}U$ is an invariant of $(V,\Omega)$.\\
@@ -95,8 +98,53 @@ This process eventually stops because $\text{dim}V<\infty$. We hence obtain $$V=
 \end{proof}
 \subsection{Skew-Symmetric Bilinear Maps}
 \begin{definition}
-The map $\tilde{\Omega}:V\rightarrow V^*$ is the linear map defined by $\tilde{\Omega}(v)(u)=\Omega(v,u)$.
+The map $\tilde{\Omega}:V\rightarrow V^*$ is the linear map defined by $\tilde{\Omega}(v)(u)=\Omega
+(v,u)$.
 \end{definition}
+\begin{definition}
+A skew-symetric bilinear map $\Omega$ is \tb{symplectic} (or nondegenerate) if $\tilde{\Omega}$ is 
+bijective, i.e., $U={0}$. The map $\Omega$ is then called a \tb{linear symplectic structure} on V,
+and $(V,\Omega)$ is called a \tb{symplectic vector space}.
+\end{definition}
+\begin{note} 
+These are immediate properties of symplectic map:
+\begin{enumerate}
+\item Duality: the map $\Omega : V \overset{\backsimeq}{\rightarrow} V^*$ is a bijection.
+\item $\text{dim}U=0,\text{dim}V=2n$.
+\item $(V,\Omega)$ has a basis $e_1,\cdots,e_n,f_1,\cdots,f_n$ s.t.
+\begin{equation*}
+\Omega(u,v)=
+\begin{bmatrix}
+- & u & -
+\end{bmatrix}
+\begin{bmatrix}
+0    & I_n \\
+-I_n & 0
+\end{bmatrix}
+\begin{bmatrix}
+| \\
+v \\
+|
+\end{bmatrix}
+\end{equation*}
+\end{enumerate}
+\end{note}
+\begin{remark}
+Not all subspace W of a $(V,\Omega)$ look the same:
+\begin{itemize}
+\item W is \tb{sysmplecitc} if $\Omega\mid_W$ is nondegenerate, for instance $W=span{e_1,f_1}$.
+\item W is \tb{isotropic} if $\Omega\mid_W\equiv0$, for instance $W=span{e_1,e_1}$.
+\end{itemize}
+\end{remark}
+\begin{definition}
+A \tb{symplectomorphism} $\varphi$ between $(V,\Omega)$ and $(V',\Omega ')$ is a linear isomorphism
+$\varphi:V\overset{\backsimeq}{\rightarrow} V'$ s.t. $\varphi^*\Omega '=\Omega, (\varphi^*
+\Omega ')(u,v)=\Omega '(\varphi(u),\varphi(v))$. If a symplectomorphism exists, these two spaces are
+said to be \tb{symplectomophic}.
+\end{definition}
+\begin{remark}
+Thm \ref{thm:2.1} shows that any symplectic space is symplectomorphic to $(\R{2n},\Omega_0)$.
+\end{remark}
 \subsection{Symplectic Vector Space}
 \subsection{Symplectic Manifolds}
 \subsection{Symplectomorphisms}
